@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-import yfinance as yf
-from pathlib import Path  # NEW
+import yfinance as yf # type: ignore
+from pathlib import Path
 
 DATA_DIR = "Scripts and CSV Files"
-PORTFOLIO_CSV = f"{DATA_DIR}/chatgpt_portfolio_update.csv"
+PORTFOLIO_CSV = f"{DATA_DIR}/Daily Updates.csv"
 
 # Save path in project root
-RESULTS_PATH = Path("Results.png")  # NEW
+RESULTS_PATH = Path("Results.png")
 
 
 def load_portfolio_totals() -> pd.DataFrame:
@@ -165,8 +165,8 @@ def main() -> dict:
     )
     # annotate max drawdown
     plt.text(
-        dd_date + pd.Timedelta(days=0.5),
-        dd_value + 3,
+        dd_date,
+        dd_value + 5,
         f"{dd_pct:.1f}%",
         color="red",
         fontsize=9,
